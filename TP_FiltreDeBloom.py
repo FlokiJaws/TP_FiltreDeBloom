@@ -2,6 +2,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 import random as rd
 
+# Cette fonction initialise un tableau contenant les valeurs de teta générées aléatoirement dans l'intervalle [0.4, 0.6].
+def F_teta(k):
+    liste_teta = []
+    for i in range (k):
+        liste_teta.append(rd.uniform(0.4,0.6))
+    return liste_teta
+
+
 # Cette fonction lit un fichier texte contenant une liste de mots français, puis retourne une liste contenant ces mots.
 def lireFichier(): 
     File = open("liste_francais.txt","r")
@@ -32,14 +40,6 @@ def hashage(mot, teta, N):
     motCrypté = int((r % 1) * N)
     
     return motCrypté
-
-
-# Cette fonction initialise un tableau contenant les valeurs de teta générées aléatoirement dans l'intervalle [0.4, 0.6].
-def F_teta(k):
-    liste_teta = []
-    for i in range (k):
-        liste_teta.append(rd.uniform(0.4,0.6))
-    return liste_teta
 
 
 # Cette fonction teste si un mot est potentiellement présent dans un filtre de Bloom.
@@ -89,7 +89,7 @@ def Filtre_Bloom_Fonction(n):
     return fauxPositifs
     
 
-#main qui permet l'affichage du graphique grace a matplotlib pour se rendre compte du nombres de faux positifs en fonction de teta 
+#main qui permet l'affichage du graphique grace a matplotlib pour se rendre compte du nombres de faux positifs en fonction de teta (il faut attendre un peu pour que le graphique se lance)
 def main():
     
     for i in range (0,100):
